@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/ryananyangu/gonativeweb/models"
+	"github.com/ryananyangu/jumia/models"
 	"gorm.io/driver/postgres"
 	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"

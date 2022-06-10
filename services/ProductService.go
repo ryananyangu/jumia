@@ -6,8 +6,8 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/ryananyangu/gonativeweb/models"
-	"github.com/ryananyangu/gonativeweb/utils"
+	"github.com/ryananyangu/jumia/models"
+	"github.com/ryananyangu/jumia/utils"
 )
 
 var wg sync.WaitGroup

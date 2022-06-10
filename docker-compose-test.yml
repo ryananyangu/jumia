@@ -1,0 +1,36 @@
+version: '3.0'
+services:
+  db-test:
+    image: postgres:14.1-alpine
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - '5432:5432'
+    volumes: 
+      - db-test:/var/lib/postgresql/data
+  jumia-tests:
+    volumes:
+      # Faster startups by having artifacts cached in local cache dir
+      # - ~/.cache/jumia/tests:/home/appuser
+      - ./:/home/appuser/api
+    working_dir: /home/appuser/api
+    build:
+      dockerfile: Dockerfile.local
+      context: .
+    environment:
+      ENV: PROD
+      DB_HOST: db-test
+      DB_PORT: 5432
+      DB_USER: postgres
+      DB_PASSWORD: postgres
+      DB_NAME: postgres
+    command: go test -v -race -coverprofile=/dev/null -covermode=atomic ./...
+    links:
+      - db-test
+    depends_on:
+      - db-test
+volumes:
+  db-test:
+    driver: local

@@ -5,7 +5,7 @@ import (
 
 	"github.com/gofiber/fiber/v2"
 
-	"github.com/ryananyangu/gonativeweb/controllers"
+	"github.com/ryananyangu/jumia/controllers"
 )
 
 var base_path = "/api/v1"

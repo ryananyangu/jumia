@@ -53,6 +53,5 @@ func SetupRouter() *fiber.App {
 
 func main() {
 	app := SetupRouter()
-
 	app.Listen(":8080")
 }

@@ -7,8 +7,8 @@ import (
 
 	"github.com/gofiber/fiber/v2"
 
-	"github.com/ryananyangu/gonativeweb/models"
-	"github.com/ryananyangu/gonativeweb/services"
+	"github.com/ryananyangu/jumia/models"
+	"github.com/ryananyangu/jumia/services"
 )
 
 func GetProductBySKU(ctx *fiber.Ctx) error {

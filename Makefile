@@ -32,7 +32,7 @@ run:	## - Run the smallest and secured golang docker image based on scratch
 .PHONY: run-tests
 run-tests: ## - Running tests on environment
 	@printf "\033[32m\xE2\x9c\x93 $(VERSION) | Running tests on environment !\n\033[0m"
-	@go test -v -race -coverprofile=cover.out -covermode=atomic ./...
+	@docker-compose -p api-tests -f docker-compose-test.yml up --abort-on-container-exit --remove-orphans
 
 .PHONY: test-coverage
 run-coverage : ## - Generating the test coverage report
